@@ -30,4 +30,13 @@ export default App2;
 //BLOCKS
 //ELEMENTS
 //MADIFLERS
-//BLOCO
+//BLOCO_elemento--modificador
+//header
+//header__link
+//header__link--small
+//item-list__header
+//nomes compostos sao separados por -
+
+// tag vazai em react se chama fragment ou fraguimento
+
+// componentes recebem "props"
