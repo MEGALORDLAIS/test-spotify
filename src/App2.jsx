@@ -40,3 +40,28 @@ export default App2;
 // tag vazai em react se chama fragment ou fraguimento
 
 // componentes recebem "props"
+// items === 5 ? (
+// <>
+//  <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+//</>
+//) : (
+//<>
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+// <SingleItem />
+//</>
+//)
