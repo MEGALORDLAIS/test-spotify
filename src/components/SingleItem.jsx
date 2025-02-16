@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 const SingleItem = ({ id, name, image, banner, artist, idPath }) => {
   return (
-    <Link to={`${idPath}/${id}`} className="single-item">
+    <Link
+      to={idPath && id ? `${idPath}/${id}` : "/default-path"}
+      className="single-item"
+    >
       <div className="single-item__div-image-button">
         <div className="single-item__div-image">
           <img

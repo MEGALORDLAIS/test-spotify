@@ -65,3 +65,11 @@ export default App2;
 // <SingleItem />
 //</>
 //)
+// import React from "react";
+//import { useParams } from "react-router-dom";
+
+//const Song = () => {
+// return <div>Song</div>;
+//};
+
+//export default Song;
