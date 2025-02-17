@@ -1,37 +1,40 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import Player from "../components/Player";
+import { artistArray } from "../../Pasta Assets com Database e Logo/assets/database/artists";
+import { songsArray } from "../../Pasta Assets com Database e Logo/assets/database/songs";
 
 const Song = () => {
-  const { id } = useParams(); // Obtém o ID da URL
+  const { id } = useParams();
 
-  if (!id) {
-    return <p>Erro: ID não encontrado</p>; // Garante que o ID é válido
-  }
+  const { image, name, duration, artist, audio, index } = songsArray.filter(
+    (currentSongObj) => currentSongObj.id === Number(id)
+  )[0];
+
+  const artistObj = artistArray.filter(
+    (currentArtistObj) => currentArtistObj.name === artist
+  )[0];
 
   return (
     <div className="song">
       <div className="song__container">
         <div className="song__image-container"></div>
-        <img
-          src="https://i.scdn.co/image/ab67616d00001e022774b00531d558bc19e12a24"
-          alt="imagem do texto x"
-        />
+        <img src={Image} alt={`imagem da musica ${songObj.name}}`} />
       </div>
       <div className="song__bar">
-        <Link to="/artist/1" className="song__artist-image">
+        <Link to={`/artist/${artistObj.id}`} className="song__artist-image">
           <img
             width={75}
             height={75}
-            src="https://i.scdn.co/image/ab67616d00001e02af41105c5cd91b28f2cf219d"
-            alt="imagem do artista y"
+            src={artistObj.image}
+            alt={`imagem do artista ${artistObj.name}`}
           />
         </Link>
-        <Player />
+        <Player duration={songObj.duration} />
 
         <div>
-          <p className="song__name">Ultima saudade - Ao vivo</p>
-          <p>Henrique & Juliano</p>
+          <p className="song__name">{name}</p>
+          <p>{artist}</p>
         </div>
       </div>
     </div>

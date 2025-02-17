@@ -6,7 +6,7 @@ import {
   faForwardStep,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-const Player = () => {
+const Player = ({ duration }) => {
   return (
     <div className="player">
       <div className="player__controllers">
@@ -22,7 +22,7 @@ const Player = () => {
         </Link>
       </div>
       <div className="player__progress">
-        <p>00:00</p>
+        <p>{duration}</p>
         <div className="player__bar">
           <div className="player__bar-progres"></div>
         </div>
