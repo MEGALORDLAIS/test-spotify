@@ -7,19 +7,34 @@ import { songsArray } from "../../Pasta Assets com Database e Logo/assets/databa
 const Song = () => {
   const { id } = useParams();
 
-  const { image, name, duration, artist, audio, index } = songsArray.filter(
+  // Encontrando a música correspondente
+  const songObj = songsArray.find(
     (currentSongObj) => currentSongObj.id === Number(id)
-  )[0];
+  );
 
-  const artistObj = artistArray.filter(
-    (currentArtistObj) => currentArtistObj.name === artist
-  )[0];
+  // Se não encontrar a música, evita erro
+  if (!songObj) {
+    return <p>Música não encontrada</p>;
+  }
+
+  // Encontrando o artista correspondente
+  const artistObj = artistArray.find(
+    (currentArtistObj) => currentArtistObj.name === songObj.artist
+  );
+
+  //const { image, name, duration, artist, audio, index } = songsArray.filter(
+  //  (currentSongObj) => currentSongObj.id === Number(id)
+  //)[0];
+
+  //const artistObj = artistArray.filter(
+  //  (currentArtistObj) => currentArtistObj.name === artist
+  //)[0];
 
   return (
     <div className="song">
       <div className="song__container">
         <div className="song__image-container"></div>
-        <img src={Image} alt={`imagem da musica ${songObj.name}}`} />
+        <img src={songObj.image} alt={`imagem da musica ${songObj.name}}`} />
       </div>
       <div className="song__bar">
         <Link to={`/artist/${artistObj.id}`} className="song__artist-image">
@@ -34,7 +49,7 @@ const Song = () => {
 
         <div>
           <p className="song__name">{name}</p>
-          <p>{artist}</p>
+          <p>{songObj.artist}</p>
         </div>
       </div>
     </div>
